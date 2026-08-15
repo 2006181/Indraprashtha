@@ -1,0 +1,22 @@
+{
+  "model_name": "ETA Prediction Model",
+  "algorithm": "LightGBMRegressor",
+  "mae": 3.6446082680864693,
+  "rmse": 17.279336265787343,
+  "r2": 0.9991773961885471,
+  "mape": 0.5270427926460497,
+  "train_samples": 122741,
+  "test_samples": 30686,
+  "top_features": {
+    "scheduled_travel_time_mins": 2953.0,
+    "historical_avg_delay": 785.0,
+    "distance_kms": 513.0,
+    "remaining_distance": 342.0,
+    "route_count": 268.0,
+    "station_code": 263.0,
+    "station_delay_rate": 184.0,
+    "dep_hour": 169.0,
+    "dwell_time_mins": 136.0,
+    "train_type_delay_rate": 102.0
+  }
+}

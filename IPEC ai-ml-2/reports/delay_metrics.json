@@ -1,0 +1,21 @@
+{
+  "model_name": "Delay Prediction Model",
+  "algorithm": "XGBoostRegressor",
+  "mae": 0.0780613487865821,
+  "rmse": 0.6924056058587537,
+  "r2": 0.9975103256728136,
+  "train_samples": 136328,
+  "test_samples": 34083,
+  "top_features": {
+    "station_delay_rate": 0.900750458240509,
+    "train_type_delay_rate": 0.05682525038719177,
+    "historical_avg_delay": 0.037373386323451996,
+    "distance_kms": 0.0029454557225108147,
+    "dep_hour": 0.0009792407508939505,
+    "route_count": 0.000344933447195217,
+    "dwell_time_mins": 0.00031197021598927677,
+    "is_junction": 0.00021007579925935715,
+    "station_code": 0.00020051949832122773,
+    "train_type": 5.874121416127309e-05
+  }
+}

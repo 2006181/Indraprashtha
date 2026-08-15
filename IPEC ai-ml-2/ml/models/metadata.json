@@ -1,0 +1,87 @@
+{
+  "version": "1.0.0",
+  "training_date": "2026-08-16T00:17:48.769184",
+  "random_seed": 42,
+  "dataset_name": "train_dataset.zip",
+  "dataset_rows": {
+    "eta_samples": 153427,
+    "delay_samples": 170411,
+    "conflict_samples": 8739
+  },
+  "metrics": {
+    "eta_model": {
+      "model_name": "ETA Prediction Model",
+      "algorithm": "LightGBMRegressor",
+      "mae": 3.6446082680864693,
+      "rmse": 17.279336265787343,
+      "r2": 0.9991773961885471,
+      "mape": 0.5270427926460497,
+      "train_samples": 122741,
+      "test_samples": 30686,
+      "top_features": {
+        "scheduled_travel_time_mins": 2953.0,
+        "historical_avg_delay": 785.0,
+        "distance_kms": 513.0,
+        "remaining_distance": 342.0,
+        "route_count": 268.0,
+        "station_code": 263.0,
+        "station_delay_rate": 184.0,
+        "dep_hour": 169.0,
+        "dwell_time_mins": 136.0,
+        "train_type_delay_rate": 102.0
+      }
+    },
+    "delay_model": {
+      "model_name": "Delay Prediction Model",
+      "algorithm": "XGBoostRegressor",
+      "mae": 0.0780613487865821,
+      "rmse": 0.6924056058587537,
+      "r2": 0.9975103256728136,
+      "train_samples": 136328,
+      "test_samples": 34083,
+      "top_features": {
+        "station_delay_rate": 0.900750458240509,
+        "train_type_delay_rate": 0.05682525038719177,
+        "historical_avg_delay": 0.037373386323451996,
+        "distance_kms": 0.0029454557225108147,
+        "dep_hour": 0.0009792407508939505,
+        "route_count": 0.000344933447195217,
+        "dwell_time_mins": 0.00031197021598927677,
+        "is_junction": 0.00021007579925935715,
+        "station_code": 0.00020051949832122773,
+        "train_type": 5.874121416127309e-05
+      }
+    },
+    "conflict_model": {
+      "model_name": "Traffic Conflict Model",
+      "algorithm": "XGBoostClassifier",
+      "precision": 0.9852941176470589,
+      "recall": 0.9940652818991098,
+      "f1_score": 0.9896602658788775,
+      "roc_auc": 0.9995951689459881,
+      "confusion_matrix": [
+        [
+          1406,
+          5
+        ],
+        [
+          2,
+          335
+        ]
+      ],
+      "train_samples": 6991,
+      "test_samples": 1748,
+      "top_features": {
+        "scheduled_gap_mins": 0.9745521545410156,
+        "delay_a": 0.011578640900552273,
+        "station_code": 0.003536403877660632,
+        "delay_b": 0.003343477612361312,
+        "station_route_count": 0.0030352179892361164,
+        "train_type_a": 0.002667473629117012,
+        "train_type_b": 0.0012866270262748003,
+        "time_difference_mins": 0.0,
+        "is_junction": 0.0
+      }
+    }
+  }
+}

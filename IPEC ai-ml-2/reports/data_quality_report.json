@@ -1,0 +1,113 @@
+{
+  "summary": {
+    "total_files_validated": 5,
+    "total_issues_found": 4
+  },
+  "datasets": {
+    "etrain_delays.csv": {
+      "row_count": 1900,
+      "col_count": 11,
+      "unique_trains": 90,
+      "unique_stations": 480,
+      "null_counts": {
+        "train_number": 0,
+        "train_name": 0,
+        "station_code": 0,
+        "station_name": 0,
+        "average_delay_minutes": 236,
+        "pct_right_time": 0,
+        "pct_slight_delay": 0,
+        "pct_significant_delay": 0,
+        "pct_cancelled_unknown": 0,
+        "scraped_at": 0,
+        "source_url": 0
+      },
+      "duplicate_rows": 0,
+      "issues_count": 1,
+      "issues": [
+        "Missing average_delay_minutes in 236 rows."
+      ]
+    },
+    "Train_delay_Prediction.csv": {
+      "row_count": 190,
+      "col_count": 4,
+      "null_counts": {
+        "Started On": 2,
+        "Status": 0,
+        "Delay": 0,
+        "Reach Time": 0
+      },
+      "duplicate_rows": 0,
+      "issues_count": 1,
+      "issues": [
+        "Missing 'Started On' timestamp in 2 rows."
+      ]
+    },
+    "india_railway_stations": {
+      "row_count": 8990,
+      "unique_stations": 8990,
+      "junction_count": 4112,
+      "null_counts": {
+        "station_name": 1,
+        "station_code": 0,
+        "state": 98,
+        "railway_zone_code": 4532,
+        "latitude": 189,
+        "longitude": 189,
+        "is_junction": 0,
+        "route_count": 0,
+        "station_count_in_state": 98
+      },
+      "duplicate_rows": 0,
+      "issues_count": 1,
+      "issues": [
+        "Missing coordinates for 189 stations."
+      ]
+    },
+    "train_schedules_json": {
+      "total_trains": 8490,
+      "express_trains": 2533,
+      "passenger_trains": 4545,
+      "superfast_trains": 1412,
+      "total_route_leg_stops": 170340,
+      "empty_routes": 0,
+      "issues_count": 0,
+      "issues": []
+    },
+    "Railway_Scheduling_Data.xlsx": {
+      "row_count": 100,
+      "columns": [
+        "id",
+        "name",
+        "route",
+        "type",
+        "status",
+        "speed_kmh",
+        "delay_minutes",
+        "priority",
+        "from_station",
+        "to_station",
+        "lat",
+        "lng"
+      ],
+      "null_counts": {
+        "id": 0,
+        "name": 0,
+        "route": 0,
+        "type": 0,
+        "status": 0,
+        "speed_kmh": 0,
+        "delay_minutes": 0,
+        "priority": 0,
+        "from_station": 0,
+        "to_station": 0,
+        "lat": 0,
+        "lng": 0
+      },
+      "issues_count": 1,
+      "issues": [
+        "Found 12 trains with speed <= 0."
+      ]
+    }
+  }
+}
