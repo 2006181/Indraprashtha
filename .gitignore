@@ -1,17 +1,12 @@
-# Virtual Environment
-.venv/
-
-# Python cache
 __pycache__/
-*/__pycache__/
 *.pyc
-*.pyo
-
-# VS Code
+.venv/
 .vscode/
-
-# macOS
 .DS_Store
 
-# Environment
 .env
+.env.*
+
+.idea/
+
+*.sqlite3

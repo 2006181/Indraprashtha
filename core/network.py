@@ -1,40 +1,41 @@
 import networkx as nx
-from models.block import Block
+from models.station import Station
+
 class RailwayNetwork:
     """
-    Railway Graph using NetworkX
+    Railway Network Graph using NetworkX.
+    Each node represents a railway station.
     """
     def __init__(self):
         self.graph = nx.Graph()
-        self.blocks = {}
-        
-    # Blocks
-    def add_block(self, block: Block):
-        self.blocks[block.block_id] = block
+        self.stations = {}
+
+
+    def add_station(self, station: Station):
+        self.stations[station.station_id] = station
         self.graph.add_node(
-            block.block_id,
-            object=block
+            station.station_id,
+            object=station
         )
- 
-    # Tracks
-    def connect_blocks(
+
+    def connect_stations(
         self,
-        block1: str,
-        block2: str,
+        station1: str,
+        station2: str,
         distance: float = 1.0
     ):
 
         self.graph.add_edge(
-            block1,
-            block2,
+            station1,
+            station2,
             distance=distance
         )
 
-    # Get Block
-    def get_block(self, block_id: str):
-        return self.blocks.get(block_id)
 
-    # Route
+    def get_station(self, station_id: str):
+        return self.stations.get(station_id)
+
+
     def shortest_route(
         self,
         source: str,
@@ -48,47 +49,24 @@ class RailwayNetwork:
             weight="distance"
         )
 
-    # Neighbours
-    def neighbours(self, block_id: str):
+    def neighbours(self, station_id: str):
         return list(
-            self.graph.neighbors(block_id)
+            self.graph.neighbors(station_id)
         )
 
-    # Status
     def show_network(self):
-        print("\n========== BLOCKS ==========")
-        for block in self.blocks.values():
-            print(block)
-        print("\n========== TRACKS ==========")
+        print()
+        print("RAILWAY NETWORK")
+        print(f"Stations : {len(self.stations)}")
+        print(f"Tracks   : {self.graph.number_of_edges()}")
+        print()
+        print("Sample Connections")
+        count = 0
         for u, v, data in self.graph.edges(data=True):
             print(
-                f"{u} <------> {v} "
-                f"({data['distance']} km)"
+                f"{u} <------> {v}"
+                f" ({data['distance']} km)"
             )
-
-# TEST
-if __name__ == "__main__":
-    railway = RailwayNetwork()
-    b1 = Block("B1")
-    b2 = Block("B2")
-    b3 = Block("B3")
-    b4 = Block("B4")
-    railway.add_block(b1)
-    railway.add_block(b2)
-    railway.add_block(b3)
-    railway.add_block(b4)
-    railway.connect_blocks("B1", "B2", 5)
-    railway.connect_blocks("B2", "B3", 7)
-    railway.connect_blocks("B3", "B4", 4)
-    railway.show_network()
-    print("\nShortest Route")
-    print(
-        railway.shortest_route(
-            "B1",
-            "B4"
-        )
-    )
-    print("\nNeighbours of B2")
-    print(
-        railway.neighbours("B2")
-    )
+            count += 1
+            if count == 10:
+                break
